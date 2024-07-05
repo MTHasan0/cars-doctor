@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import SignUpImg from '../../assets/images/login/login.svg'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 
 
 
 
 const SignUp = () => {
+
+    const {createUser} = useContext(AuthContext);
+
     const handleSignUp = event => {
-        event.preventDefault()
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+        createUser(email, password)
+        .then(result=>{
+            const user = result.user;
+            console.log(user);
+
+        })
+        .then(error=>{
+            console.log(error);
+        })
     }
     return (
         <div className="hero-content flex-col lg:flex-row items-center h-auto">
@@ -43,6 +62,13 @@ const SignUp = () => {
                             <span className="label-text">Password</span>
                         </label>
                         <input type="password" placeholder="Enter your password" name='password' className="input input-bordered" required />
+                        
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Confirm Password</span>
+                        </label>
+                        <input type="password" placeholder="Enter your password" name='' className="input input-bordered" required />
                         
                     </div>
                     <div className="form-control mt-6">

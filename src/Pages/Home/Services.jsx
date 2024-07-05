@@ -30,6 +30,7 @@ const Services = () => {
                     </ServiceCard>)
                 }
             </div>
+            <button className='btn btn-outline mt-10 hover:bg-orange-600'>More Service</button>
 
         </div>
     );

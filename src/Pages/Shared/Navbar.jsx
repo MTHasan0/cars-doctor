@@ -4,8 +4,8 @@ import logo from '../../assets/logo.svg'
 const Navbar = () => {
 
     const navItems = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/about'>About</Link></li>
+        <li><Link  to='/'>Home</Link></li>
+        <li><Link  to='/about'>About</Link></li>
         <li><Link>Service</Link></li>
         <li><Link>Blog</Link></li>
         <li><Link>Contact</Link></li>
