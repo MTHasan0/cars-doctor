@@ -4,8 +4,8 @@ import logo from '../../assets/logo.svg'
 const Navbar = () => {
 
     const navItems = <>
-        <li><Link  to='/'>Home</Link></li>
-        <li><Link  to='/about'>About</Link></li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/about'>About</Link></li>
         <li><Link>Service</Link></li>
         <li><Link>Blog</Link></li>
         <li><Link>Contact</Link></li>
@@ -43,8 +43,9 @@ const Navbar = () => {
                     {navItems}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <button className='btn btn-outline bg-white hover:bg-orange-600'>Appointment</button>
+            <div className="navbar-end flex gap-3">
+                <Link to='/login'><button className='btn btn-outline bg-white hover:bg-gradient-to-r from-orange-600'>Login</button></Link>
+                <button className='btn btn-outline bg-white hover:bg-gradient-to-r from-orange-600'>Appointment</button>
             </div>
         </div>
     );
