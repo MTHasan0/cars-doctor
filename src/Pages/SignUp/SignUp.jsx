@@ -18,13 +18,11 @@ const SignUp = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        
 
         createUser(email, password)
         .then(result=>{
             const user = result.user;
-            console.log(user);
-
         })
         .then(error=>{
             console.log(error);
@@ -72,7 +70,7 @@ const SignUp = () => {
                         
                     </div>
                     <div className="form-control mt-6">
-                        <input className='btn btn-outline hover:bg-orange-600' type='submit' value='Sign Up'></input>
+                        <input className='btn btn-outline hover:bg-gradient-to-r from-orange-600 to-black' type='submit' value='Sign Up'></input>
 
                     </div>
 

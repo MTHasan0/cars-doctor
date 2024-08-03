@@ -15,7 +15,7 @@ const ProductsCard = ({product}) => {
                 <h2 className="card-title">{name}</h2>
                 <p className='text-xl font-semibold text-orange-600'>Price: {price}</p>
                 <div className="card-actions">
-                    <button className="btn btn-outline hover:bg-orange-600">Buy Now</button>
+                    <button className="btn btn-outline hover:bg-gradient-to-r from-orange-600 to-black">Buy Now</button>
                 </div>
             </div>
         </div>

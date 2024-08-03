@@ -1,26 +1,29 @@
 import React, { useContext } from 'react';
-
+import Swal from 'sweetalert2';
 import loginImg from '../../assets/images/login/login.svg'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
 
-    const {login} = useContext(AuthContext);
+    const { login } = useContext(AuthContext);
 
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        
 
         login(email, password)
-        .then(result=>{
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error=>console.log(error));
+            .then(result => {
+                Swal.fire({
+                    title: "Logged in",
+                    text: "Logged in successful",
+                    icon: "success"
+                  });
+            })
+            .catch(error => console.log(error));
 
     }
 
@@ -32,7 +35,7 @@ const Login = () => {
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl border py-10 border-slate-100">
                     <form onSubmit={handleLogin} className="card-body">
-                    <h2 className='text-4xl font-bold'>Login</h2>
+                        <h2 className='text-4xl font-bold'>Login</h2>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -49,7 +52,7 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <input className='btn btn-outline hover:bg-orange-600' type='submit' value='Login'></input>
+                            <input className='btn btn-outline hover:bg-gradient-to-r from-orange-600 to-black' type='submit' value='Login'></input>
 
                         </div>
 
