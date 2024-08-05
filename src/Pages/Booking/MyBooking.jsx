@@ -4,6 +4,8 @@ import imgCheckOut from '../../assets/images/checkout/checkout.png'
 
 import MyBookingCard from './MyBookingCard';
 import { AuthContext } from '../../Providers/AuthProvider';
+import axios from 'axios';
+import { WiNightClear } from 'react-icons/wi';
 
 const MyBooking = () => {
     const { user } = useContext(AuthContext);
@@ -40,8 +42,8 @@ const MyBooking = () => {
 
                 if (data.modifyCount > 0) {
                     ///update state
-                    const remaining = mybookings.filter(mybooking=>mybooking._id !== id);
-                    const updated = mybookings.find(mybooking=>mybooking._id === id);
+                    const remaining = mybookings.filter(mybooking => mybooking._id !== id);
+                    const updated = mybookings.find(mybooking => mybooking._id === id);
                     updated.status = 'confirm';
                     const newBookings = [updated, ...remaining];
                     setMyBookings(newBookings);
@@ -49,11 +51,16 @@ const MyBooking = () => {
             })
     }
 
+    const url = `http://localhost:5000/checkout?email=${user?.email}`;
     useEffect(() => {
-        fetch(`http://localhost:5000/checkout?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => setMyBookings(data))
-    },[])
+        axios.get(url, {withCredentials: true})
+        .then(res => {
+            setMyBookings(res.data)
+        })
+        //     fetch(`http://localhost:5000/checkout?email=${user?.email}`)
+        //         .then(res => res.json())
+        //         .then(data => setMyBookings(data))
+    }, [url])
 
     return (
         <div className='text-center lg:mt-20 flex-col mx-auto '>

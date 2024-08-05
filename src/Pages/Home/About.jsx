@@ -23,7 +23,7 @@ const About = () => {
                         <p className="">
                         There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomized words which don't look even slightly believable.
                         </p>
-                        <button className="btn btn-outline hover:bg-orange-600">Get Started</button>
+                        <button className="btn btn-outline hover:bg-gradient-to-r from-orange-600 to-black">Get Started</button>
                     </div>
                 </div>
             </div>

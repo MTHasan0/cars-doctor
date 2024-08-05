@@ -1,19 +1,22 @@
 import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
 import loginImg from '../../assets/images/login/login.svg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import axios from 'axios';
 
 const Login = () => {
 
     const { login } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        
+
 
         login(email, password)
             .then(result => {
@@ -21,7 +24,17 @@ const Login = () => {
                     title: "Logged in",
                     text: "Logged in successful",
                     icon: "success"
-                  });
+                });
+                const user = { email };
+                //get access token
+                axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.success) {
+                            navigate(location?.state ? location?.state : '/')
+                        }
+                    })
+
             })
             .catch(error => console.log(error));
 
