@@ -6,18 +6,18 @@ import img5 from '../../assets/images/banner/5.jpg'
 import img6 from '../../assets/images/banner/6.jpg'
 const Banner = () => {
     return (
-        <div className="carousel w-full h-[700px]">
-            <div id="slide1" className="carousel-item relative w-full">
+        <div className="carousel w-full lg:h-[700px] md:h-[300px]">
+            <div id="slide1" className="carousel-item relative w-full ">
                 <img
                     src={img1}
                     className="w-full rounded-xl" />
 
-                <div className="absolute left-0 items-center  rounded-xl flex  h-full bg-no-repeat bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)] w-full  gap-5">
+                <div className=" absolute left-0 items-center  rounded-xl flex  h-full bg-no-repeat bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)] w-full  gap-5">
 
-                    <div className='text-white space-y-7 w-1/2 pl-12 pt-12'>
-                        <h2 className='text-6xl'>Affordable Price for Car Servicing</h2>
-                        <p>There are many variations of passages of available but the majority have suffered alteration in some form</p>
-                        <div className='flex gap-5'>
+                    <div className='text-white lg:space-y-7 md:space-y-3 lg:w-1/2 md:w-1/2 md:pl-4 md:pt-4 pl-4 lg:pl-12 lg:pt-12'>
+                        <h2 className='lg:text-6xl md:text-2xl text-lg font-bold'>Affordable Price for Car Servicing</h2>
+                        <p className=''>There are many variations of passages of available but the majority have suffered alteration in some form</p>
+                        <div className='hidden md:flex lg:flex gap-5'>
                             <button className='btn btn-outline text-white hover:bg-gradient-to-r from-orange-600 to-black '>Discover more</button>
                             <button className='btn btn-outline text-white hover:bg-gradient-to-r from-orange-600 to-black'>Latest Project</button>
                         </div>
@@ -59,7 +59,7 @@ const Banner = () => {
             <div id="slide5" className="carousel-item relative w-full">
                 <img
                     src={img5}
-                    className="w-full" />
+                    className="lg:w-full" />
                 <div className="absolute left-5 right-5 bottom-0 flex -translate-y-1/2 transform justify-end gap-5">
                     <a href="#slide4" className="btn btn-circle btn-outline border-0 text-white bg-gradient-to-r from-orange-600 to-black">❮</a>
                     <a href="#slide6" className="btn btn-circle btn-outline border-0 text-white bg-gradient-to-r from-orange-600 to-black">❯</a>

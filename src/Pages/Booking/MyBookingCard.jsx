@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaAngleDown, FaDeleteLeft } from "react-icons/fa6";
+import { FaDeleteLeft } from "react-icons/fa6";
 
 const MyBookingCard = ({ mybooking, handleDelete, handlePending }) => {
 

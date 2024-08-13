@@ -104,7 +104,7 @@ const CheckOut = () => {
                             <textarea name="message" rows="6" className=" input-bordered p-2.5 w-full   bg-gray-50 rounded-lg border" placeholder="Leave a comment..."></textarea>
                         </div>
                         <div className="form-control mt-6">
-                            <input className='btn btn-block bg-gradient-to-l from-orange-600 to-black text-white' name="price" type='submit' value={'$ '+price}></input>
+                            <input className='btn btn-block bg-gradient-to-l from-orange-600 to-black text-white' name="price" value={'$ '+price}></input>
 
                         </div>
 

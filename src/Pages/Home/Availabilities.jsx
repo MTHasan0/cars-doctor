@@ -4,7 +4,7 @@ import { FaCalendarDays, FaMapLocation, FaPhone } from "react-icons/fa6";
 
 const Availabilities = () => {
     return (
-        <div className='w-full bg-black space-y-5 lg:space-y-0 lg:flex lg:justify-around py-16 mt-10 rounded-xl'>
+        <div className='w-full bg-black space-y-5 lg:space-y-0 lg:flex lg:justify-around py-16 mt-10 rounded-xl pl-6'>
             <div>
                 <div className='flex items-center gap-5 text-white'>
                     <FaCalendarDays className='text-2xl text-orange-500' />

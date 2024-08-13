@@ -24,16 +24,16 @@ const SignUp = () => {
         .then(result=>{
             const user = result.user;
         })
-        .then(error=>{
+        .catch(error=>{
             console.log(error);
         })
     }
     return (
-        <div className="hero-content flex-col lg:flex-row items-center h-auto">
-            <div className=" w-1/2 ">
-                <img className='max-w-sm' src={SignUpImg}></img>
+        <div className="hero-content flex-col lg:flex-row md:flex-row items-center h-auto">
+            <div className=" lg:w-1/2 ">
+                <img className='' src={SignUpImg}></img>
             </div>
-            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl border py-10 border-slate-100">
+            <div className="card bg-base-100 w-full lg:w-[45%]  md:w-[50%] shrink-0 shadow-2xl border py-10 border-slate-100">
                 <form onSubmit={handleSignUp} className="card-body">
                     <h2 className='text-4xl font-bold'>Sign up</h2>
                     <div className="form-control">
@@ -70,7 +70,7 @@ const SignUp = () => {
                         
                     </div>
                     <div className="form-control mt-6">
-                        <input className='btn btn-outline hover:bg-gradient-to-r from-orange-600 to-black' type='submit' value='Sign Up'></input>
+                        <input className='btn btn-outline hover:bg-gradient-to-r from-orange-600 to-black hover:text-white' type='submit' value='Sign Up'></input>
 
                     </div>
 

@@ -1,11 +1,11 @@
-import { data } from 'autoprefixer';
+
 import React, { useContext, useEffect, useState } from 'react';
 import imgCheckOut from '../../assets/images/checkout/checkout.png'
 
 import MyBookingCard from './MyBookingCard';
 import { AuthContext } from '../../Providers/AuthProvider';
 import axios from 'axios';
-import { WiNightClear } from 'react-icons/wi';
+// import { WiNightClear } from 'react-icons/wi';
 
 const MyBooking = () => {
     const { user } = useContext(AuthContext);
@@ -53,14 +53,14 @@ const MyBooking = () => {
 
     const url = `http://localhost:5000/checkout?email=${user?.email}`;
     useEffect(() => {
-        axios.get(url, {withCredentials: true})
-        .then(res => {
-            setMyBookings(res.data)
-        })
-        //     fetch(`http://localhost:5000/checkout?email=${user?.email}`)
-        //         .then(res => res.json())
-        //         .then(data => setMyBookings(data))
-    }, [url])
+        axios.get(url, { withCredentials: 'true' })
+            .then(res => {
+                setMyBookings(res.data)
+            })
+            // fetch('`http://localhost:5000/checkout?email=${user?.email}`', { credentials: 'include' })
+        //     .then(res => res.json())
+        //     .then(data => setMyBookings(data))
+    }, [url]);
 
     return (
         <div className='text-center lg:mt-20 flex-col mx-auto '>

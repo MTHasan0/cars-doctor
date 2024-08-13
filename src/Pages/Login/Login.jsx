@@ -16,8 +16,6 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-
-
         login(email, password)
             .then(result => {
                 Swal.fire({
@@ -42,11 +40,11 @@ const Login = () => {
 
     return (
         <div className="">
-            <div className="hero-content flex-col lg:flex-row items-center h-auto">
-                <div className=" w-1/2 ">
-                    <img className='max-w-sm' src={loginImg}></img>
+            <div className="hero-content flex-col lg:flex-row md:flex-row items-center h-auto">
+                <div className=" lg:w-1/2 ">
+                    <img className='' src={loginImg}></img>
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl border py-10 border-slate-100">
+                <div className="card bg-base-100 w-full lg:w-[50%]  md:w-[50%] shrink-0 shadow-2xl border py-10 border-slate-100">
                     <form onSubmit={handleLogin} className="card-body">
                         <h2 className='text-4xl font-bold'>Login</h2>
                         <div className="form-control">
@@ -65,7 +63,7 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <input className='btn btn-outline hover:bg-gradient-to-r from-orange-600 to-black' type='submit' value='Login'></input>
+                            <input className='btn btn-outline hover:bg-gradient-to-r from-orange-600 to-black hover:text-white' type='submit' value='Login'></input>
 
                         </div>
 

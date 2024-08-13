@@ -2,42 +2,61 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 
 import { createContext, useEffect, useState } from 'react';
 import app from '../Firebase/firebase.config';
+import axios from 'axios';
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
 
-    const createUser = (email, password) =>{
+    const createUser = (email, password) => {
         setLoading(true);
-        return createUserWithEmailAndPassword (auth, email, password);
+        return createUserWithEmailAndPassword(auth, email, password);
     }
 
-    const login = (email, password) =>{
+    const login = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const logOut = () =>{
+    const logOut = () => {
         setLoading(true);
         return signOut(auth);
 
     }
 
-    useEffect(()=>{
-        const unSubscribe = onAuthStateChanged(auth, currentUser =>{
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
+            const userEmail = currentUser?.email || user?.email;
+            const loggedUser = { email: userEmail };
             setUser(currentUser);
-            
+            console.log(currentUser);
             setLoading(false);
+            //if user is exist then issue a token
+            if (currentUser) {
+
+                axios.post('http://localhost:5000/jwt', loggedUser, { withCredentials: true })
+                    .then(res => {
+                        console.log("Token response", res.data);
+                    })
+            }
+            else {
+                axios.post('http://localhost:5000/logout', loggedUser, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                    })
+
+            }
+
         });
-        return () =>{
+        return () => {
             return unSubscribe();
         }
-    },[])
+    }, [])
 
     const authInfo = {
         user,

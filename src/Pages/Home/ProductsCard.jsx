@@ -4,7 +4,7 @@ const ProductsCard = ({product}) => {
 
     const {name, price, rating, image } = product;
     return (
-        <div className="card bg-base-100 w-96 h-[32rem] shadow-lg m-auto">
+        <div className="card bg-base-100 h-[32rem] shadow-lg m-auto">
             <figure className="px-10 pt-10">
                 <img
                     src={image}

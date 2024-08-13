@@ -15,9 +15,10 @@ const Navbar = () => {
 
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/about'>About</Link></li>
+        <li><Link to='/about'>About us</Link></li>
         <li><Link to='/service'>Service</Link></li>
         {user?.email && <li><Link to='/mybooking'>My Booking</Link></li>}
+        <li><Link className=''>Appointment</Link></li>
         
         
     </>
@@ -58,7 +59,7 @@ const Navbar = () => {
             {
                 user?.email ? <Link ><button onClick={handleLogout} className='btn bg-white hover:bg-gradient-to-r from-orange-600 to-black hover:text-white'>Logout</button></Link> : <Link to='/login'><button className='btn bg-white hover:bg-gradient-to-r from-orange-600 to-black hover:text-white'>Login</button></Link>
             }
-            <button className='btn bg-white hover:bg-gradient-to-r from-orange-600 to-black hover:text-white'>Appointment</button>
+            <button className='btn bg-white hover:bg-gradient-to-r hidden md:flex   from-orange-600 to-black hover:text-white'>Appointment</button>
         </div>
     </div>
 );
