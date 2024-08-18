@@ -34,7 +34,7 @@ const CheckOut = () => {
         }
       
 
-        fetch('http://localhost:5000/checkout', {
+        fetch('https://car-doctor-server-rosy-five.vercel.app/checkout', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

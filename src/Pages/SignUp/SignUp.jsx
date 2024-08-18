@@ -22,7 +22,7 @@ const SignUp = () => {
 
         createUser(email, password)
         .then(result=>{
-            const user = result.user;
+            
         })
         .catch(error=>{
             console.log(error);
